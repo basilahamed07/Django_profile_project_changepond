@@ -1,0 +1,87 @@
+
+
+{% comment %} Landing Page Contents {% endcomment %}
+{% if  landing_count == 3 %}
+<div class="container px-4 py-5" id="custom-cards">
+  <h2 class="pb-2 border-bottom" id="post">Latest Post</h2>
+<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+  {% for trash in three_data %}
+    <div class="col">
+      <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+          <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{trash.title}} POST</h3>
+          
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#{{trash.slug}}">
+  {{trash.slug}}
+</button>
+
+
+{% comment %} #by using the slug we can perform the models method {% endcomment %}
+<!-- Modal -->
+<div class="modal fade" id="{{trash.slug}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <b class="modal-title" id="exampleModalLabel">{{trash.title}}</b>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body bg-danger">
+        <h1>{{trash.description}}</h1>
+        <h1>{{trash.day}}</h1>
+        <h1>{{trash.time}}</h1>
+        <h1>{{trash.starts}}</h1>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+    {% endfor %}
+
+  </div>
+
+ {% comment %} bottom all post tages  {% endcomment %}
+ <div class="d-grid gap-2 col-1 mx-auto">
+  <a href="{% url "all-post" %}"><button class="btn btn-primary" type="button">All Post</button></a>
+</div> 
+
+
+<!--for all-post page -->
+{% else %}
+{% block all-post %}
+<div class="d-grid gap-12 col-12 mx-auto">
+  <a href="home"><button class="btn btn-primary" type="button">Main Page</button></a>
+</div> 
+<div class="container px-4 py-5" id="custom-cards">
+  <h2 class="pb-2 border-bottom">All Post</h2>
+<div class="row row-cols-1 row-cols-lg-2 align-items-stretch g-5 py-5">
+  {% for trash in post %}
+  <a href="{% url "details-slug" trash.slug%}">
+    <div class="col">
+      <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('');">
+        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+          <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{trash.title}}</h3>
+        </div>
+      </div>
+    </div>
+  </a>
+    {% endfor %}
+  </div>
+{% endblock all-post %}
+{% endif %}
+
+
+
+
+
+
+
+

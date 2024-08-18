@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% comment %} <link rel="stylesheet" href="{% static "app.css" %}"> {% endcomment %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Grey+Qo&family=Jersey+10&display=swap');
+    p{
+        color: white;
+    }
+    
+.introduction{
+    
+        width: 700px;
+        
+        
+
+    }
+    b{
+      font-family: "importent";
+      font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    }
+    
+    h1
+    {
+        font-family:"normas";
+      font-weight: 300;
+      font-style: normal;
+      color: white;
+      font-size :34px;
+    }
+    
+</style>
+{% block title %}HomePage{% endblock  %}
+{% block contents %}
+{% include "include/head.html" %}
+{% include "include/introduction.html" %}
+{% include "include/post.html" %}
+{% include "include/about.html" %}
+{% include "include/footer.html" %}
+{% endblock contents %}

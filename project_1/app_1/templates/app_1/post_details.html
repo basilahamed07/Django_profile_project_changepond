@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block contents %}
+{% block title %}{{post.title}}{% endblock  %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Grey+Qo&family=Jersey+10&display=swap');
+    p{
+        color: white;
+    }
+    
+.introduction{
+    
+        width: 700px;
+        
+        
+
+    }
+    b{
+      font-family: "importent";
+      font-weight: 400;
+      font-style: normal;
+      color: gold;
+      display: inline-block;
+    }
+    
+    h1
+    {
+        font-family:"normas";
+      font-weight: 300;
+      font-style: normal;
+      color: white;
+      font-size :34px;
+    }
+
+</style>
+
+
+
+<div class="d-grid gap-2 col-16 mx-auto">
+    <a href="{% url "all-post" %}"><button class="btn btn-primary" type="button">All Post</button></a>
+  </div> 
+
+
+
+<div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+    <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+      <div class="my-3 py-3">
+        <h2 class="display-5">Contents</h2>
+      </div>
+      <div class="bg-light shadow-sm mx-auto" style="width: 100%; height: 100px; border-radius: 21px 21px 0 0; style="background-image: url('https://i.pinimg.com/originals/ea/52/95/ea52953033a005854762886d58e4f217.jpg');>
+        <img src="https://i.pinimg.com/originals/ea/52/95/ea52953033a005854762886d58e4f217.jpg"> 
+      </div>
+    </div>
+    <div class="bg-balck me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div class="my-3 p-3">
+        {% comment %} <h1 class="">Detasil</h1> {% endcomment %}
+        <h1 class="display-3">{{post.title}}</h1>
+        <h1 class="display-3">{{post.description}}</h1>
+        <h1 class="display-3">{{post.day}}</h1>
+        <h1 class="display-3">{{post.time}}</h1>
+        <h1 class="display-3">{{post.starts}}</h1>
+      </div>
+      {% comment %} <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div> {% endcomment %}
+    </div>
+  </div>
+{% endblock contents %} 

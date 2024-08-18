@@ -1,0 +1,55 @@
+{% load static %}
+<style>
+    p{
+        color: white;
+    }
+    
+.introduction{
+    
+        width: 700px;
+        
+        
+
+    }
+    b{
+      font-family: "importent";
+      font-weight: 400;
+      font-style: normal;
+      color: gold;
+      display: inline-block;
+    }
+    
+    h1
+    {
+        font-family:"normas";
+      font-weight: 300;
+      font-style: normal;
+      color: white;
+      font-size :34px;
+    }
+    
+</style>
+<div class="container px-4 py-5" id="custom-cards">
+    <h1 class="pb-2 border-bottom">Introduction</h1>
+
+  <div class="row row-cols-1 row-cols-lg-2 align-items-md-center g-4 py-5 d-flex container-fluid">
+    <div class="col ">
+    <h1>Hello! My name is <b>{{introduction_data.full_name}}</b>, and I am <b>{{introduction_data.age}}</b> years old. I hold a <b>{{introduction_data.degree}}</b>. Additionally, I am certified in 
+         <b>{{introduction_data.certification}}</b>, a credential that underscores my expertise and commitment to professional excellence.
+
+        My skills and achievements have been recognized with a <b>{{introduction_data.rating}}</b> rating, 
+        reflecting my dedication and proficiency. 
+        I am excited to leverage my background and credentials to contribute effectively and 
+        continue growing in my field.</h1>
+    </div>
+
+
+    {% comment %} image {% endcomment %}
+    
+    <div class="col rounded-4 shadow-lg">
+      <img src=" {% static "images\photo1 - Copy.jpg" %} " alt="" width = "100%"
+      </div>
+    </div>
+    
+  </div>
+</div>
