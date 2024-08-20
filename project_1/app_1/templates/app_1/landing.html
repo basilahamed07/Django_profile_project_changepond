@@ -1,42 +1,47 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% comment %} <link rel="stylesheet" href="{% static "app.css" %}"> {% endcomment %}
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Grey+Qo&family=Jersey+10&display=swap');
-    p{
-        color: white;
-    }
-    
-.introduction{
-    
-        width: 700px;
-        
-        
-
-    }
-    b{
-      font-family: "importent";
-      font-family: "Jersey 10", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-    }
-    
-    h1
-    {
-        font-family:"normas";
-      font-weight: 300;
-      font-style: normal;
-      color: white;
-      font-size :34px;
-    }
-    
-</style>
+<link rel="stylesheet" href="{% static 'static/app.css' %}">
 {% block title %}HomePage{% endblock  %}
 {% block contents %}
-{% include "include/head.html" %}
-{% include "include/introduction.html" %}
+<div class="container px-4 py-5" id="custom-cards">
+  <h1 class="pb-2 border-bottom text-success">Introduction</h1>
+
+<div class="row row-cols-1 row-cols-lg-2 align-items-md-center g-4 py-5 d-flex container-fluid">
+  <div class="col ">
+  <h3>Hello! My name is <b>{{introduction_data.full_name}}</b>, and I am <b>{{introduction_data.age}}</b> years old. I hold a <b>{{introduction_data.degree}}</b>. Additionally, I am certified in 
+       <b>{{introduction_data.certification}}</b>, a credential that underscores my expertise and commitment to professional excellence.
+
+      My skills and achievements have been recognized with a <b>{{introduction_data.rating}}</b> rating, 
+      reflecting my dedication and proficiency. 
+      I am excited to leverage my background and credentials to contribute effectively and 
+      continue growing in my field.</h3>
+  </div>
+
+  
+  <div class="col rounded-4 shadow-lg bg-image hover-zoom">
+    <div class="bg-image hover-zoom text-bg-dark bg-dark">
+      <img  src=" {% static "images\photo1 - Copy.jpg" %} " alt="" class="w-100">
+    </div>
+</div>
+    
+    </div>
+  </div>
+  
+</div>
+</div>
+<div class="container px-4 py-5" id="custom-cards">
+  <h2 class="pb-2 border-bottom text-success" id="post">Latest Post</h2>
+</div>
 {% include "include/post.html" %}
-{% include "include/about.html" %}
-{% include "include/footer.html" %}
-{% endblock contents %}
+<div class="d-grid gap-2 col-1 mx-auto">
+  <a href="{% url "all-post" %}"><button class="btn btn-primary" type="button">All Post</button></a>
+</div> 
+
+<div class="container px-4 py-5" id="custom-cards">
+  <h1 class=" border-bottom text-success" id="about">About</h1>
+</div>
+<p>Hello! My name is Basil Ahamed, and I am 22 years old. I have earned a Bachelor’s degree in Computer Science (BE) and have further distinguished myself with certifications in Certified Ethical Hacking (CEH), Python, and Cybersecurity. These credentials highlight not only my technical expertise but also my commitment to maintaining a high standard of professional excellence. My skills and accomplishments have been acknowledged through a notable rating, which reflects my dedication and proficiency in the field. I am enthusiastic about utilizing my background and qualifications to make a meaningful contribution and to continue advancing in my career.</p>
+
+
+{% endblock  %}

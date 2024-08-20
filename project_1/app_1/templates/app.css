@@ -7,6 +7,8 @@ p{
 
     width: 700px;
     
+    
+
 }
 b{
   font-family: "importent";
@@ -28,3 +30,26 @@ p{
     color: white;
 }
 
+.introduction{
+
+    width: 700px;
+    
+    
+
+}
+b{
+  font-family: "importent";
+  font-weight: 400;
+  font-style: normal;
+  color: gold;
+  display: inline-block;
+}
+
+h1
+{
+    font-family:"normas";
+  font-weight: 300;
+  font-style: normal;
+  color: white;
+  font-size :34px;
+}
