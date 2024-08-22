@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Post Forms{% endblock title %}
+{% block contents %}
+<form action="feedback" method="post">
+{% csrf_token %}
+{{form}}
+<button>Send Data</button>
+</form>
+{% endblock contents %}

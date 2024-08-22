@@ -2,5 +2,6 @@
 {% load static %}
 {% block title %}All Post{% endblock  %}
 {% block contents %}
+<a href="{% url "add_post" %}"><button>Add Post</button></a>
 {% include "include/post.html" %}
 {% endblock contents %}

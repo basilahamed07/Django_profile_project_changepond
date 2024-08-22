@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'project_1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':"project_1",
+        'NAME':"profile_1",
         "USER":"root",
         "PORT":3333,
         "PASSWORD":"",
@@ -132,3 +132,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+MEDIA_ROOT = BASE_DIR / "IMAGES_FILES"
+
+MEDIA_URL = "IMAGE-FILE/"

@@ -1,20 +1,12 @@
 from django.shortcuts import render
-from .models import *
+from django.views import View
+from django.views.generic.edit import CreateView
+from .models import Posts, feedback
 # Create your views here.
 
 def home_page(request):
-    introduction_data = Introduction.objects.all()[0]
-    print(introduction_data.first_name)
     posts = Posts.objects.all().order_by("-time").values()[0:3]
-    counts_landing = posts.count()
-    # count_1 = 1
-    # count_2 = 2
-    # count_3 = 3
-    print(posts)
-
-    return render(request,"app_1/landing.html",{"introduction_data":introduction_data,
-                                                "data":posts,
-                                                "landing_count":counts_landing,})
+    return render(request,"app_1/landing.html",{"data":posts})
 
 def all_post(request):
     posts = Posts.objects.all()
@@ -23,3 +15,16 @@ def all_post(request):
 def details(request,details):
     posts = Posts.objects.get(slug=details)
     return render(request,"app_1/post_details.html",{"post":posts})
+
+class formviews(CreateView):
+    model = Posts
+    template_name = "app_1/forms.html"
+    success_url = "/add_post"
+    exclude = ('slug')
+    fields = "__all__"
+
+class feedback(CreateView):
+    model = feedback
+    template_name = "app_1/feedback.html"
+    success_url = "/feedback"
+    fields = "__all__"
